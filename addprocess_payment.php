@@ -6,7 +6,7 @@
             && !empty($_POST['edname']) && !empty($_POST['cvname'])){
             
             $var1=$_SESSION['uname'];
-            $var2='150';
+            $var2=$_GET['price'];
             $var3=$_GET['postid'];
             
             try{
@@ -17,7 +17,7 @@
                     $dbcon->exec($sqlquery);
                     ?>
                         <script>
-                      window.location.assign('homepage_user.php');
+                      window.location.assign('petfood.php?paysuccess=Payment%20Successful');
                         </script>
                     <?php
                 }
