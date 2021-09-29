@@ -11,7 +11,7 @@
             <div class="navbar border b-2 border b-gray-500">
                 <img src="logo.PNG" class="m-1 p-1 h-32">
                 <div class="p-4 flex bg-gray-400 justify-between">
-                   <a class="text-xl font-medium hover:text-gray-600" href="homepage_user.php">Home</a>
+                   <a class="text-xl font-medium hover:text-gray-600" href="homepage_admin.php">Home</a>
                 </div>
                     <?php
                         try{
@@ -22,7 +22,7 @@
                             $searchval=$_GET['param1'];
                             $sqlquery="";
                             if(!empty($searchval)){
-                                $sqlquery="SELECT * FROM adoption_post as a JOIN user as u ON a.username = u.username WHERE Location LIKE '%$searchval%' OR Description LIKE '%$searchval%' ORDER BY post_id DESC";
+                                $sqlquery="SELECT * FROM adoption_post as a JOIN user as u ON a.username = u.username where u.username LIKE '%$searchval%' ORDER BY post_id DESC";
                             }
                             
                             
@@ -49,7 +49,6 @@
                                                     </th><br><br>
                                                         <td><img class= "h-60 w-56 border rounded border-gray-800" alt="Pet Photo" src="<?php echo $row['imagepath'] ?>"></td></div>
                                                 </tr>
-
                                     <?php
                                 }
                             }
@@ -78,7 +77,7 @@
         else{
             ?>
                 <script>
-                    window.location.assign('homepage_user.php');
+                    window.location.assign('homepage_admin.php');
                 </script>
             <?php
         }
